@@ -86,7 +86,7 @@ def plot_pose(data, num_clip, num_seq, recovered=False):
         y = y_raw[chosen_points]
         label = data[num_clip][num_seq]['action']
 
-        # Method 1: add '-' to y value to convert into negative values
+        # Method 1: add '-' to y value to convert into negative values 
         # fig = plt.figure()
         # ax = fig.add_subplot(1, 1, 1)
         # ax.scatter(x, -y)

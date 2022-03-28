@@ -1,11 +1,10 @@
 import argparse
-import matplotlib
 from matplotlib import pyplot as plt
 from matplotlib import image as mpimg
 import os
-import json
 import numpy as np
 from textwrap import wrap
+from sys import platform
 
 def draw_line(x1, y1, x2, y2):
     # Use original Image coordinate system
@@ -131,8 +130,10 @@ def plot_comparison():
     # 2. 'Next Step'
     # 3. then "Run".
     # If directly run the whole program, it will not save the normal size image to disk ---->>>> IMPOSSIBILE!!!
-    matplotlib.use("Qt5Agg")
-    plt.get_current_fig_manager().window.showMaximized()
+    if platform == "linux" or platform == "linux2":
+        plt.get_current_fig_manager().resize(*plt.get_current_fig_manager().window.maxsize())
+    elif platform == "win32":
+        plt.get_current_fig_manager().window.showMaximized()
 
     for i in range(nr_files):
         plt.subplot(1, 2, 1)
@@ -205,13 +206,13 @@ if __name__ == "__main__":
         os.makedirs(plot_comparison_folder_path)
 
     # ''' Plot'''
-    ff = open(os.path.join(action_clip_folder_path, arg.json_action).replace('\\', '/'), )
-    data_4_plot = json.load(ff)
-    plot_pose(data_4_plot, int(arg.number_clip), int(arg.number_sequence), recovered=False)
-
-    ff_r = open(os.path.join(action_clip_recovered_folder_path, arg.json_action_recovered).replace('\\', '/'), )
-    data_4_plot_r = json.load(ff_r)
-    plot_pose(data_4_plot_r, int(arg.number_clip), int(arg.number_sequence), recovered=True)
+    # ff = open(os.path.join(action_clip_folder_path, arg.json_action).replace('\\', '/'), )
+    # data_4_plot = json.load(ff)
+    # plot_pose(data_4_plot, int(arg.number_clip), int(arg.number_sequence), recovered=False)
+    #
+    # ff_r = open(os.path.join(action_clip_recovered_folder_path, arg.json_action_recovered).replace('\\', '/'), )
+    # data_4_plot_r = json.load(ff_r)
+    # plot_pose(data_4_plot_r, int(arg.number_clip), int(arg.number_sequence), recovered=True)
 
     # Need go to debug to save picture
     plot_comparison()

@@ -7,9 +7,9 @@
 
 # PyHAPT: A Python-based Human Activity Pose Tracking Data Processing Framework
 
-<img src=".\src\windows.png"/>
+<img src="./src/windows.png"/>
 
-<img src=".\src\feature.png" width=100%/>
+<img src="./src/linux.png"/>
 
 PyHAPT is a novel Python-based Human Activity Pose Tracking video data processing framework (PyHAPT). It provides the functionality to efficiently process annotated human pose tracking raw video data collected in unconstrained environments. 
 Besides, PyHAPT provides the functionalities of interpolation to recover the missing joints data and data visualization that gives insights into the spatial-temporal skeletal information. The processed data could be readily used for developing new human activity recognition deep learning models, which could be deployed on mobile service robots.
@@ -27,6 +27,7 @@ Please watch our video on [YouTube](https://youtu.be/iTE9zTa5Bdk) to see how to 
 
 ## Contents
 - [Dependencies](#dependencies)
+- [Prerequisites](#Prerequisites)
 - [Getting started](#getting-started)
 - [Contributing](#contributing)
 - [Authors](#authors)
@@ -49,6 +50,13 @@ Please watch our video on [YouTube](https://youtu.be/iTE9zTa5Bdk) to see how to 
 - textwrap
 - csv
 
+## Prerequisites
+- Operation System: Windows or Ubuntu 
+- IDE: Pycharm
+   
+Note: To guarantee the correct function of `data_visualization.py` of plot, users need to set the `Pycharm` IDE as:
+- [File] - [Settings] - [Tools] - [Python Scientific] - Uncheck `Show plots in tool window`   
+  
 
 ## Getting started
 
@@ -58,6 +66,7 @@ Clone the project to your file system.
 git clone https://github.com/AIRLab-POLIMI/PyHAPT.git
 ```
 
+ 
 
 ## Parameters setting
 

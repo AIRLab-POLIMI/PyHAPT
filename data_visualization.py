@@ -1,4 +1,5 @@
 import argparse
+import matplotlib
 from matplotlib import pyplot as plt
 from matplotlib import image as mpimg
 import os
@@ -120,11 +121,7 @@ def plot_pose(data, num_clip, num_seq, recovered=False):
         plt.savefig(dest)  # write image to file
         plt.clf()
 
-def plot_comparision():
-    path_dir_orig = 'picture_original/'
-    directory_orig = os.fsencode(path_dir_orig)
-    path_dir_recover = 'picture_interpolated/'
-
+def plot_comparison():
     nr_files = len([name for name in os.listdir(plot_recovered_folder_path) if os.path.isfile(os.path.join(plot_recovered_folder_path, name))])
 
     # fig = plt.figure()
@@ -134,6 +131,7 @@ def plot_comparision():
     # 2. 'Next Step'
     # 3. then "Run".
     # If directly run the whole program, it will not save the normal size image to disk ---->>>> IMPOSSIBILE!!!
+    matplotlib.use("Qt5Agg")
     plt.get_current_fig_manager().window.showMaximized()
 
     for i in range(nr_files):
@@ -150,7 +148,7 @@ def plot_comparision():
         plt.imshow(fig2)
 
         figname = 'fig_{}.png'.format(i)
-        dest = os.path.join(plot_comparision_folder_path, figname).replace('\\', '/')
+        dest = os.path.join(plot_comparison_folder_path, figname).replace('\\', '/')
         plt.savefig(dest)  # write image to file
         plt.clf()
 
@@ -171,7 +169,7 @@ def get_parser_visual():
         required=True)
     parser.add_argument(
         '--json-action-recovered',
-        default='data/action_clip_recovered_folder/cleaning_clip_folder.json',
+        default='cleaning_clip_folder.json',
         help='name of the recovered JSON file to be visualized',
         required=True)
     parser.add_argument(
@@ -202,20 +200,18 @@ if __name__ == "__main__":
         os.makedirs(plot_withoutrecovered_folder_path)
     if not os.path.exists(plot_withoutrecovered_folder_path):
         os.makedirs(plot_withoutrecovered_folder_path)
-    plot_comparision_folder_path = os.path.join(path_visual, 'picture', 'comparision').replace('\\', '/')
-    if not os.path.exists(plot_comparision_folder_path):
-        os.makedirs(plot_comparision_folder_path)
+    plot_comparison_folder_path = os.path.join(path_visual, 'picture', 'comparison').replace('\\', '/')
+    if not os.path.exists(plot_comparison_folder_path):
+        os.makedirs(plot_comparison_folder_path)
 
     # ''' Plot'''
     ff = open(os.path.join(action_clip_folder_path, arg.json_action).replace('\\', '/'), )
-    # ff = open(os.path.join(action_clip_folder_path, 'cleaning_clip_folder.json').replace('\\', '/'), )
     data_4_plot = json.load(ff)
     plot_pose(data_4_plot, int(arg.number_clip), int(arg.number_sequence), recovered=False)
 
-    ff_r = open(os.path.join(action_clip_folder_path, arg.json_action_recovered).replace('\\', '/'), )
-    # ff_r = open(os.path.join(action_clip_recovered_folder_path, 'cleaning_clip_folder.json').replace('\\', '/'), )
+    ff_r = open(os.path.join(action_clip_recovered_folder_path, arg.json_action_recovered).replace('\\', '/'), )
     data_4_plot_r = json.load(ff_r)
     plot_pose(data_4_plot_r, int(arg.number_clip), int(arg.number_sequence), recovered=True)
 
     # Need go to debug to save picture
-    plot_comparision()
+    plot_comparison()

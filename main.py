@@ -130,7 +130,7 @@ def plot_pose(data, num_clip, num_seq, recovered=False):
         plt.savefig(dest)  # write image to file
         plt.clf()
 
-def plot_comparision():
+def plot_comparison():
     path_dir_orig = 'picture_original/'
     nr_files = len([name for name in os.listdir(plot_recovered_folder_path) if os.path.isfile(os.path.join(plot_recovered_folder_path, name))])
 
@@ -155,7 +155,7 @@ def plot_comparision():
         plt.imshow(fig2)
 
         figname = 'fig_{}.png'.format(i)
-        dest = os.path.join(plot_comparision_folder_path, figname).replace('\\', '/')
+        dest = os.path.join(plot_comparison_folder_path, figname).replace('\\', '/')
         plt.savefig(dest)  # write image to file
         plt.clf()
 
@@ -707,9 +707,9 @@ if __name__ == '__main__':
     if not os.path.exists(plot_withoutrecovered_folder_path):
         os.makedirs(plot_withoutrecovered_folder_path)
 
-    plot_comparision_folder_path = os.path.join(path_write, 'picture', 'comparision').replace('\\', '/')
-    if not os.path.exists(plot_comparision_folder_path):
-        os.makedirs(plot_comparision_folder_path)
+    plot_comparison_folder_path = os.path.join(path_write, 'picture', 'comparison').replace('\\', '/')
+    if not os.path.exists(plot_comparison_folder_path):
+        os.makedirs(plot_comparison_folder_path)
 
     output_data_folder_path = os.path.join(path_write, 'output').replace('\\', '/')
     if not os.path.exists(output_data_folder_path):
@@ -741,7 +741,7 @@ if __name__ == '__main__':
     # plot_pose(data_4_plot_r, 0, 0, recovered=True)
     #
     # # Need go to debug to save picture
-    # plot_comparision()
+    # plot_comparison()
 
     # ''' 3 step: merge all action folder JSON file '''
     merge_data_clip(folder_to_process, recovered=True)

@@ -113,6 +113,10 @@ data_visualization.py
       --number-sequence         1
 ```
 
+Note:
+- All the generated pictures are stored in path `[data] - [picture]`.
+- To guarantee the correct function of `data_visualization.py` of plot, users need to set the `Pycharm` IDE as:
+  - [File] - [Settings] - [Tools] - [Python Scientific] - Uncheck `Show plots in tool window`   
 
 
 ## Recommended folder structure

@@ -49,6 +49,7 @@ Please watch our video on [YouTube](https://youtu.be/iTE9zTa5Bdk) to see how to 
 - pandas
 - textwrap
 - csv
+- sys
 
 ## Prerequisites
 - Operation System: Windows or Ubuntu 

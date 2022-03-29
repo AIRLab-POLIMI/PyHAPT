@@ -139,7 +139,11 @@ def plot_comparison():
     # 2. 'Next Step'
     # 3. then "Run".
     # If directly run the whole program, it will not save the normal size image to disk ---->>>> IMPOSSIBILE!!!
-    plt.get_current_fig_manager().window.showMaximized()
+
+    if sys.platform == "linux" or sys.platform == "linux2":
+        plt.get_current_fig_manager().resize(*plt.get_current_fig_manager().window.maxsize())
+    elif sys.platform == "win32":
+        plt.get_current_fig_manager().window.showMaximized()
 
     for i in range(nr_files):
         plt.subplot(1, 2, 1)

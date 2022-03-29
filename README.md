@@ -7,9 +7,7 @@
 
 # PyHAPT: A Python-based Human Activity Pose Tracking Data Processing Framework
 
-<img src="./src/windows.png"/>
-
-<img src="./src/linux.png"/>
+<img src="./src/windows.png"/><img src="./src/linux.png"/>
 
 PyHAPT is a novel Python-based Human Activity Pose Tracking video data processing framework (PyHAPT). It provides the functionality to efficiently process annotated human pose tracking raw video data collected in unconstrained environments. 
 Besides, PyHAPT provides the functionalities of interpolation to recover the missing joints data and data visualization that gives insights into the spatial-temporal skeletal information. The processed data could be readily used for developing new human activity recognition deep learning models, which could be deployed on mobile service robots.

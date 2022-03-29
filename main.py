@@ -12,6 +12,7 @@ import pandas as pd
 from textwrap import wrap
 from sklearn.model_selection import train_test_split
 import csv
+import sys
 
 def draw_line(x1, y1, x2, y2):
     # Use original Image coordinate system

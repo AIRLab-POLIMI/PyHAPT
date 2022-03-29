@@ -69,6 +69,8 @@ git clone https://github.com/AIRLab-POLIMI/PyHAPT.git
 
 ## Parameters setting
 
+We introduce the meaning of the parameters of the script and provide the examples of setting to reproduce the results. 
+
 **main.py**
 
 - `--folder-write`: main root folder of the generated data               
@@ -112,10 +114,11 @@ data_visualization.py
 ```
 
 Note:
+- We recommend running `main.py` and `data_visualization.py` sequentially. 
 - All the generated pictures are stored in path `[data] - [picture]`.
 - To guarantee the correct function of `data_visualization.py` of plot, users need to set the `Pycharm` IDE as:
   - [File] - [Settings] - [Tools] - [Python Scientific] - Uncheck `Show plots in tool window`   
-
+- We have tested successfully both on `Ubuntu` and `Windows` operating systems.  
 
 ## Recommended folder structure
 The following folder tree is recommended:
